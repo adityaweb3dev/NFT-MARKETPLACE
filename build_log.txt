@@ -1,0 +1,65 @@
+﻿Γû▓ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 4.7s
+  Running TypeScript ...
+node.exe : Failed to compile.
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Users\adity\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : 
+NotSpecifie    d: (Failed to 
+compile.:String) [], Re    
+moteException
+    + FullyQualifiedErrorId : 
+NativeComma    ndError
+ 
+
+./src/app/explore/page.tsx:261:51
+Type error: Type 'NFT' is not 
+assignable to type '{ id: string; 
+name: string; collection: string; 
+price: number; currency: string; 
+image: string; creator: string; 
+creatorAvatar: string; royalty: 
+number; isAuction?: boolean | 
+undefined; auctionEnds?: string | 
+undefined; }'.
+  Types of property 'auctionEnds' are 
+incompatible.
+    Type 'number | undefined' is not 
+assignable to type 'string | 
+undefined'.
+      Type 'number' is not assignable 
+to type 'string'.
+
+[0m [90m 259 |[39m                 
+    [33m<[39m[33mdiv[39m 
+className[33m=[39m[32m"grid 
+grid-cols-2 sm:grid-cols-3 
+lg:grid-cols-4 gap-4"[39m[33m>[39m
+ [90m 260 |[39m                     
+    {filtered[33m.[39mmap((nft[33m,
+[39m i) [33m=>[39m (
+[31m[1m>[22m[39m[90m 261 |[39m  
+                           
+[33m<[39m[33mNFTCard[39m 
+key[33m=[39m{nft[33m.[39mid} 
+nft[33m=[39m{nft} 
+index[33m=[39m{i} 
+[33m/[39m[33m>[39m
+ [90m     |[39m                     
+                              
+[31m[1m^[22m[39m
+ [90m 262 |[39m                     
+    ))}
+ [90m 263 |[39m                     
+[33m<[39m[33m/[39m[33mdiv[39m[3
+3m>[39m
+ [90m 264 |[39m                 ) 
+[33m:[39m ([0m
+Next.js build worker exited with 
+code: 1 and signal: null
