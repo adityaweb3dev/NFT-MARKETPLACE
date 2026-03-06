@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Menu, X, Zap } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const navLinks = [
@@ -40,11 +41,15 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
-                        <div className="relative">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-                                <Zap className="w-4 h-4 text-white" />
-                            </div>
-                            <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 opacity-0 group-hover:opacity-40 blur-md transition-opacity" />
+                        <div className="relative w-8 h-8">
+                            <Image
+                                src="/logo.png"
+                                alt="Nexa Marketplace"
+                                fill
+                                sizes="32px"
+                                className="object-contain"
+                                priority
+                            />
                         </div>
                         <span className="font-remap text-lg text-white tracking-widest uppercase">
                             NexaMarket

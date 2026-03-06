@@ -9,6 +9,15 @@ export const metadata: Metadata = {
   description:
     "Discover, collect, and trade extraordinary NFTs. Automated royalties, low gas fees, and creator-first economics on Ethereum Sepolia.",
   keywords: "NFT, marketplace, Sepolia, digital art, blockchain, Web3",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    title: "NexaMarket — NFT Marketplace",
+    description: "Discover, collect, and trade extraordinary NFTs on Ethereum Sepolia.",
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({
