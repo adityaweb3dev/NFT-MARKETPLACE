@@ -2,7 +2,7 @@
 
 import { useReadContract, useReadContracts } from "wagmi";
 import { NEXA_MARKETPLACE_ABI, NEXA_MARKETPLACE_ADDRESS, NEXA_NFT_ABI } from "@/lib/contracts";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { getIPFSGateway } from "@/lib/utils";
 import { formatEther } from "viem";
@@ -31,11 +31,12 @@ export function useListings() {
     });
 
     // 3. Extract active listings and fetch their Token URIs
-    const activeRaw = rawListings
-        ? rawListings
+    const activeRaw = useMemo(() => {
+        if (!rawListings) return [];
+        return rawListings
             .map((res: any, i) => ({ result: res.result, id: listingIds[i] }))
-            .filter((l) => l.result && l.result[4]) // index 4 is 'active'
-        : [];
+            .filter((l) => l.result && l.result[4]); // index 4 is 'active'
+    }, [rawListings]);
 
     const { data: tokenURIs } = useReadContracts({
         contracts: activeRaw.map((l) => ({
@@ -88,7 +89,7 @@ export function useListings() {
         }
 
         fetchMetadata();
-    }, [tokenURIs, activeRaw, nextId]);
+    }, [tokenURIs, nextId]);
 
     return { listings, loading };
 }

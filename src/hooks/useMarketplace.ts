@@ -75,6 +75,7 @@ export function useMarketplace() {
             functionName: "buyNFT",
             args: [listingId],
             value: parseEther(priceEth),
+            gas: BigInt(300000), // Explicit gas to bypass Sepolia estimation cap
         });
 
         if (publicClient) {
